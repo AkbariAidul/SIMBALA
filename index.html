@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sistem Informasi Mitigasi Banjir Barito Kuala untuk pemantauan dan pelaporan banjir." />
+  <meta name="keywords" content="mitigasi banjir, Barito Kuala, pelaporan banjir" />
+  <meta name="author" content="xAI" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <title>Beranda - SIMBALA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body class="overflow-hidden bg-gray-100">
+  <nav class="bg-blue-800 text-white p-4 flex justify-between items-center">
+    <div class="text-xl font-bold">SIMBALA</div>
+    <div id="nav-links" class="space-x-4"></div>
+    <button id="logout-btn" class="btn-custom text-white py-1 px-3 rounded-lg hidden">Keluar</button>
+  </nav>
+
+  <div class="container mx-auto p-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Peta Rawan Banjir -->
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-2">Peta Rawan Banjir</h2>
+        <div id="map" class="w-full h-64 bg-gray-200 rounded"></div>
+      </div>
+
+      <!-- Form Pelaporan Banjir -->
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-2">Form Pelaporan Banjir</h2>
+        <form id="reportForm" class="space-y-4">
+          <div>
+            <input type="text" id="nama" placeholder="Nama Anda" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" disabled />
+          </div>
+          <div>
+            <input type="text" id="lokasi" placeholder="Koordinat (lat, lng)" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" disabled />
+          </div>
+          <div>
+            <button type="button" onclick="isiLokasi()" class="btn-custom text-white py-1 px-2 rounded-lg" disabled>Gunakan Lokasi Saya</button>
+          </div>
+          <div>
+            <select id="tingkat" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
+              <option value="">Tingkat Keparahan</option>
+              <option value="Tinggi">Tinggi</option>
+              <option value="Sedang">Sedang</option>
+              <option value="Ringan">Ringan</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-custom text-white py-2 px-4 rounded-lg w-full" disabled>Kirim Laporan</button>
+        </form>
+        <p id="login-prompt" class="text-red-600 mt-2">Silakan <a href="login.html" class="underline">login</a> atau <a href="login.html" class="underline">register</a> untuk membuat laporan.</p>
+
+        <!-- Legenda Risiko -->
+        <div class="mt-4">
+          <h3 class="text-lg font-semibold mb-2">Legenda Risiko</h3>
+          <ul class="list-disc list-inside text-gray-600">
+            <li><span class="inline-block w-4 h-4 bg-red-600 mr-2"></span> Tinggi</li>
+            <li><span class="inline-block w-4 h-4 bg-orange-500 mr-2"></span> Sedang</li>
+            <li><span class="inline-block w-4 h-4 bg-yellow-400 mr-2"></span> Ringan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Riwayat Laporan Publik -->
+    <div class="mt-6 bg-white p-4 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-2">Riwayat Laporan Publik</h2>
+      <div id="daftar-laporan" class="w-full bg-gray-200 p-2 rounded"></div>
+    </div>
+  </div>
+
+  <footer class="bg-gray-800 text-white text-center p-4 mt-6">
+    <p>© 2025 SIMBALA - Kabupaten Barito Kuala | <a href="about.html" class="underline">Tentang Kami</a> | <a href="privacy.html" class="underline">Kebijakan Privasi</a></p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Dummy GeoJSON untuk demo (ganti dengan data asli)
+    const rawanBanjirGeoJSON = {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": { "nama": "Zona A", "tingkat": "Tinggi" },
+          "geometry": { "type": "Polygon", "coordinates": [[[-2.95, 114.73], [-2.94, 114.74], [-2.95, 114.75], [-2.95, 114.73]]] }
+        },
+        {
+          "type": "Feature",
+          "properties": { "nama": "Zona B", "tingkat": "Sedang" },
+          "geometry": { "type": "Polygon", "coordinates": [[[-2.96, 114.74], [-2.95, 114.75], [-2.96, 114.76], [-2.96, 114.74]]] }
+        }
+      ]
+    };
+  </script>
+  <script src="js/users.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

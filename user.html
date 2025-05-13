@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sistem Informasi Mitigasi Banjir Barito Kuala untuk masyarakat." />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <title>Beranda Masyarakat - SIMBALA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/user.css" />
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100">
+  <nav class="bg-blue-800 text-white p-4 flex justify-between items-center">
+    <div class="flex items-center space-x-2">
+      <img src="asset/LOGO.jpg" alt="Logo SIMBALA" class="h-8 w-8" />
+      <div class="text-xl font-bold">SIMBALA</div>
+    </div>
+    <div class="space-x-4">
+      <a href="user.html" class="hover:underline">Beranda</a>
+      <button id="logout-btn" class="btn-custom text-white py-1 px-3 rounded-lg">Logout</button>
+    </div>
+  </nav>
+
+  <main class="flex-grow container mx-auto p-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-2">Peta Rawan Banjir</h2>
+        <div id="map" class="w-full h-64 bg-gray-200 rounded"></div>
+        <div class="mt-4">
+          <h3 class="text-lg font-semibold mb-2">Legenda Risiko</h3>
+          <ul class="list-disc list-inside text-gray-600">
+            <li><span class="inline-block w-4 h-4 bg-red-600 mr-2"></span> Tinggi</li>
+            <li><span class="inline-block w-4 h-4 bg-orange-500 mr-2"></span> Sedang</li>
+            <li><span class="inline-block w-4 h-4 bg-yellow-400 mr-2"></span> Ringan</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-2">Form Pelaporan Banjir</h2>
+        <form id="reportForm" class="space-y-4">
+          <div>
+            <input type="text" id="nama" placeholder="Nama Anda" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div>
+            <input type="text" id="lokasi" placeholder="Koordinat (lat, lng)" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div>
+            <button type="button" onclick="isiLokasi()" class="btn-custom text-white py-1 px-2 rounded-lg">Gunakan Lokasi Saya</button>
+          </div>
+          <div>
+            <select id="tingkat" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">Tingkat Keparahan</option>
+              <option value="Tinggi">Tinggi</option>
+              <option value="Sedang">Sedang</option>
+              <option value="Ringan">Ringan</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-custom text-white py-2 px-4 rounded-lg w-full">Kirim Laporan</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="mt-6 bg-white p-4 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-2">Riwayat Pelaporan Anda</h2>
+      <div id="daftar-laporan" class="w-full bg-gray-200 p-2 rounded"></div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-4">
+    <p>© 2025 SIMBALA - Kabupaten Barito Kuala</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="js/users.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/user.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+body {
+  background-image: url('../images/pantai.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  transition: background-image 0.5s ease;
+  overflow-y: auto;
+}
+
+.btn-custom {
+  background: linear-gradient(90deg, #4b6cb7, #182848);
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  background: linear-gradient(90deg, #182848, #4b6cb7);
+  transform: translateY(-2px);
+}
+
+body::before {
+  content: "Gambar tidak ditemukan, menggunakan warna default";
+  color: red;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: none;
+}
+
+body:not([style*="background-image"]) {
+  background-color: #e0f7fa;
+  body::before {
+    display: block;
+  }
+}

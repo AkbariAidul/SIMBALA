@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Login atau register untuk mengakses SIMBALA." />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <title>Login - SIMBALA</title>
+  <link rel="icon" href="asset/LOGO.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body class="overflow-hidden bg-gray-100">
+  
+
+  <div class="flex justify-center items-center h-[calc(100vh-64px)]">
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Selamat Datang</h2>
+      <div id="main-options" class="space-y-4">
+        <button id="login-option" class="btn-custom text-white py-2 px-4 rounded-lg w-full">Login</button>
+        <button id="register-option" class="btn-custom text-white py-2 px-4 rounded-lg w-full">Register</button>
+      </div>
+
+      <div id="login-sub-options" class="space-y-4 hidden mt-4">
+        <button id="login-masyarakat" class="btn-custom text-white py-2 px-4 rounded-lg w-full">Sebagai Masyarakat</button>
+        <button id="login-instansi" class="btn-custom text-white py-2 px-4 rounded-lg w-full">Sebagai Instansi Pemerintahan</button>
+      </div>
+
+      <form id="login-masyarakat-form" class="space-y-4 hidden mt-4">
+        <div>
+          <input id="email-masyarakat-login" type="email" placeholder="Email" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div>
+          <input id="password-masyarakat-login" type="password" placeholder="Password" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div id="error-masyarakat-login" class="text-red-600 text-sm"></div>
+        <button type="submit" class="btn-custom text-white py-2 px-4 rounded-lg w-full">Login</button>
+        <button type="button" id="back-login-masyarakat" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-lg w-full hover:bg-gray-300 mt-2">Kembali</button>
+      </form>
+
+      <form id="login-instansi-form" class="space-y-4 hidden mt-4">
+        <div>
+          <input id="email-instansi-login" type="email" placeholder="Email" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div>
+          <input id="password-instansi-login" type="password" placeholder="Password" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div>
+          <input id="gov-code-login" type="text" placeholder="Kode Instansi" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div id="error-instansi-login" class="text-red-600 text-sm"></div>
+        <button type="submit" class="btn-custom text-white py-2 px-4 rounded-lg w-full">Login</button>
+        <button type="button" id="back-login-instansi" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-lg w-full hover:bg-gray-300 mt-2">Kembali</button>
+      </form>
+
+      <div id="register-sub-options" class="space-y-4 hidden mt-4">
+        <button id="register-masyarakat" class="btn-custom text-white py-2 px-4 rounded-lg w-full">Sebagai Masyarakat</button>
+        <button id="register-instansi" class="btn-custom text-white py-2 px-4 rounded-lg w-full">Sebagai Instansi Pemerintahan</button>
+      </div>
+
+      <form id="register-masyarakat-form" class="space-y-4 hidden mt-4">
+        <div>
+          <input id="name-masyarakat" type="text" placeholder="Nama Lengkap" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div>
+          <input id="email-masyarakat-register" type="email" placeholder="Email" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div>
+          <input id="password-masyarakat-register" type="password" placeholder="Password" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div id="error-masyarakat-register" class="text-red-600 text-sm"></div>
+        <button type="submit" class="btn-custom text-white py-2 px-4 rounded-lg w-full">Register</button>
+        <button type="button" id="back-register-masyarakat" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-lg w-full hover:bg-gray-300 mt-2">Kembali</button>
+      </form>
+
+      <form id="register-instansi-form" class="space-y-4 hidden mt-4">
+        <div>
+          <input id="name-instansi" type="text" placeholder="Nama Instansi" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div>
+          <input id="email-instansi-register" type="email" placeholder="Email" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div>
+          <input id="password-instansi-register" type="password" placeholder="Password" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div>
+          <input id="gov-code-register" type="text" placeholder="Kode Instansi" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div id="error-instansi-register" class="text-red-600 text-sm"></div>
+        <button type="submit" class="btn-custom text-white py-2 px-4 rounded-lg w-full">Register</button>
+        <button type="button" id="back-register-instansi" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-lg w-full hover:bg-gray-300 mt-2">Kembali</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="bg-gray-800 text-white text-center p-4 mt-2">
+    <p>© 2025 SIMBALA - Kabupaten Barito Kuala | <a href="about.html" class="underline">Tentang Kami</a> | <a href="privacy.html" class="underline">Kebijakan Privasi</a></p>
+  </footer>
+
+  <script src="js/users.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
