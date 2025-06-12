@@ -12,17 +12,16 @@ class StoreReportRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'resident_id' => auth()->user()->hasRole('resident') ? 'nullable|exists:resident,id' : 'required|exists:residents,id',
-            'report_category_id' => 'required|exists:report_categories,id',
             'title' => 'required|string|max:255',
+            'report_category_id' => 'required|exists:report_categories,id',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'description' => 'required|string',
-            'image' => 'required',
-            'latitude' => 'required|string',
-            'longitude' => 'required|string',
-            'address' => 'required|string'
+            'lat' => 'required|numeric',
+            'lng' => 'required|numeric',
+            'address' => 'required|string',
         ];
     }
 }
