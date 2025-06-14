@@ -77,8 +77,9 @@ class ReportController extends Controller
         $data['code'] = 'USBLBTL' . mt_rand(100000, 999999);
 
         // Menyimpan ID dari user yang sedang login
-        $data['resident_id'] = Auth::user()->id;
-    
+        // $data['resident_id'] = Auth::user()->id;
+        $data['resident_id'] = Auth::user()->resident->id;
+
         $data['image'] = $request->file('image')->store('assets/report/image', 'public');
 
         // Mapping lat/lng ke latitude/longitude

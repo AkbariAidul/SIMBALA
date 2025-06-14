@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-     private ResidentRepositoryInterface $residentRepository;
+    private ResidentRepositoryInterface $residentRepository;
 
     public function __construct(ResidentRepositoryInterface $residentRepository)
     {
